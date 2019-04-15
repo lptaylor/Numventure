@@ -4,6 +4,8 @@ const Index = () => (
   <div>
     <Link href="/about">
       <button>Go to About Page</button>
+    </Link>
+    <Link href="/rules">
       <button>Go to the Rules Page</button>
     </Link>
       <h1>Welcome to Numventure</h1>
