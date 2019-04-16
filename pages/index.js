@@ -1,8 +1,5 @@
 import Link from 'next/link'
-
-const domStrings = {
-  newGame: '.new-game'
-}
+import NewGame from '../components/newGame'
 
 const boardStyle = {
     position: 'relative',
@@ -45,29 +42,5 @@ const renderBoard = () => {
   }
   return boardArr;
 }
-
-class NewGame extends React.Component {
-  handleClick() {
-   initGame();
-  }
-
-  render() {
-    return (
-    <button onClick={(e) => this.handleClick(e)}>
-      New Game
-    </button>
-  );
-  }
-}
-
-function initGame() {
-  console.log('The Game is Afoot');
-  getDice();
-}
-
-function getDice() {
-  return <img src="/static/dice-1.png" alt="dice-1" />;
-}
-
 
 export default Index
