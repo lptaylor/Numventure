@@ -1,5 +1,9 @@
 import Link from 'next/link'
 
+const domStrings = {
+  newGame: '.new-game'
+}
+
 const boardStyle = {
     position: 'relative',
     top: 15,
@@ -27,7 +31,7 @@ const Index = () => (
       <h1>Welcome to Numventure</h1>
       <h2>The game of random number knowledge!</h2>
       <h4>Please visit the Rules page to find out how the game works!</h4>
-      <button className='new-game'>New Game</button>
+      <NewGame />
       <div className='flex-container' style={ flexBox }>
         { renderBoard() }
       </div>
@@ -41,5 +45,29 @@ const renderBoard = () => {
   }
   return boardArr;
 }
+
+class NewGame extends React.Component {
+  handleClick() {
+   initGame();
+  }
+
+  render() {
+    return (
+    <button onClick={(e) => this.handleClick(e)}>
+      New Game
+    </button>
+  );
+  }
+}
+
+function initGame() {
+  console.log('The Game is Afoot');
+  getDice();
+}
+
+function getDice() {
+  return <img src="/static/dice-1.png" alt="dice-1" />;
+}
+
 
 export default Index
