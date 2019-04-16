@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import NewGame from '../components/newGame'
 
 const boardStyle = {
     position: 'relative',
@@ -27,7 +28,7 @@ const Index = () => (
       <h1>Welcome to Numventure</h1>
       <h2>The game of random number knowledge!</h2>
       <h4>Please visit the Rules page to find out how the game works!</h4>
-      <button className='new-game'>New Game</button>
+      <NewGame />
       <div className='flex-container' style={ flexBox }>
         { renderBoard() }
       </div>
