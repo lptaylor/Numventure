@@ -22,7 +22,6 @@ class Dice extends React.Component {
      index: randomNum(),
      question: getQuestion()
    })
-   debugger
   }
 
   render () {
@@ -54,7 +53,7 @@ async function getQuestion() {
   { console.log(`${json.text}`) }
   { console.log(`${json.number}`) }
 
-  return res.text;
+  return json.text;
 }
 
 export default Dice
