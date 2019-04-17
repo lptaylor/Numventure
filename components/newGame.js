@@ -1,9 +1,6 @@
 import Dice from '../components/dice'
 
 class NewGame extends React.Component {
-  state = {
-    showDice: false
-  }
 
   handleClick() {
    initGame();
