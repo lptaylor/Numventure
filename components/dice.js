@@ -1,3 +1,5 @@
+import Question from '../components/question'
+
 class Dice extends React.Component {
   constructor(){
     super()
@@ -10,14 +12,17 @@ class Dice extends React.Component {
 
     this.state = {
       index: 0,
-      dice_arr: [dice1,dice2,dice3,dice4,dice5,dice6]
+      dice_arr: [dice1,dice2,dice3,dice4,dice5,dice6],
+      question: null
     }
   }
 
   handleClick() {
    this.setState({
-     index: randomNum()
+     index: randomNum(),
+     question: getQuestion()
    })
+   debugger
   }
 
   render () {
@@ -29,6 +34,10 @@ function randomNum() {
   return Math.floor(Math.random() * 6);
 }
 
+function randomQuestion() {
+  return Math.floor(Math.random() * 500);
+}
+
 const diceStyle = {
     position: 'relative',
     display: 'inline',
@@ -37,5 +46,15 @@ const diceStyle = {
     width:75,
     height:75,
     }
+
+async function getQuestion() {
+  const res = await fetch(`http://numbersapi.com/${randomQuestion()}/trivia?fragment&json`)
+  const json = await res.json()
+
+  { console.log(`${json.text}`) }
+  { console.log(`${json.number}`) }
+
+  return res.text;
+}
 
 export default Dice
