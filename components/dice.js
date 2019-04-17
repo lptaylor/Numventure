@@ -1,7 +1,32 @@
 class Dice extends React.Component {
-  render () {
-    return <img src="/static/dice-1.png" alt="dice-1" style={ diceStyle } />;
+  constructor(){
+    super()
+    const dice1 = (<img src='./static/dice-1.png' alt="dice" style={ diceStyle } onClick={(e) => this.handleClick(e)} />);
+    const dice2 = (<img src='./static/dice-2.png' alt="dice" style={ diceStyle } onClick={(e) => this.handleClick(e)} />);
+    const dice3 = (<img src='./static/dice-3.png' alt="dice" style={ diceStyle } onClick={(e) => this.handleClick(e)} />);
+    const dice4 = (<img src='./static/dice-4.png' alt="dice" style={ diceStyle } onClick={(e) => this.handleClick(e)} />);
+    const dice5 = (<img src='./static/dice-5.png' alt="dice" style={ diceStyle } onClick={(e) => this.handleClick(e)} />);
+    const dice6 = (<img src='./static/dice-6.png' alt="dice" style={ diceStyle } onClick={(e) => this.handleClick(e)} />);
+
+    this.state = {
+      index: 0,
+      dice_arr: [dice1,dice2,dice3,dice4,dice5,dice6]
+    }
   }
+
+  handleClick() {
+   this.setState({
+     index: randomNum()
+   })
+  }
+
+  render () {
+        return this.state.dice_arr[this.state.index];
+  }
+}
+
+function randomNum() {
+  return Math.floor(Math.random() * 6);
 }
 
 const diceStyle = {
