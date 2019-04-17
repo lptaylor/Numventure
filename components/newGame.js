@@ -9,12 +9,12 @@ class NewGame extends React.Component {
   render() {
     return (
       <div>
-    <button onClick={(e) => this.handleClick(e)}>
-      New Game
-    </button>
-    <Dice />
+        <button onClick={(e) => this.handleClick(e)}>
+          New Game
+        </button>
+        <Dice />
 
-    </div>
+      </div>
   );
   }
 }
