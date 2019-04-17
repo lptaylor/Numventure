@@ -17,15 +17,23 @@ class Dice extends React.Component {
     }
   }
 
-  handleClick() {
-   this.setState({
-     index: randomNum(),
-     question: getQuestion()
-   })
+  handleClick = () => {
+    Promise.all([randomNum(), getQuestion()])
+    .then((results) => {
+     this.setState({
+       index: results[0],
+       question: results[1]
+     });
+   });
   }
 
   render () {
-        return this.state.dice_arr[this.state.index];
+        return (
+          <div>
+            { this.state.dice_arr[this.state.index] }
+            <Question question={this.state.question} />
+          </div>
+        );
   }
 }
 
@@ -40,6 +48,7 @@ function randomQuestion() {
 const diceStyle = {
     position: 'relative',
     display: 'inline',
+    top: 20,
     bottom: 15,
     left: 25,
     width:75,
